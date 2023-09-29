@@ -1,0 +1,127 @@
+\documentclass[paper=letter, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage{enumitem}
+\usepackage{listings,multicol}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+% \fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{ 
+    \normalfont \normalsize 
+    \textsc{CS 3060 Programming Languages, Spring 2021} \\ [25pt] % Your university, school and/or department name(s)
+    \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+    \huge Assignment \#9  \\ % The assignment title
+    \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+% \author{John Smith} % Your name
+
+% \date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+    \begin{center}
+         Assignment \#9\\
+        \small CS 3060 Programming Languages, Spring 2021 \\
+        \small Instructor: Dr. Roy \\
+        \huge Scala-Haskell 
+    \end{center}
+    
+    \textbf{Due Date:} Apr 24 (Sat) @ 11.59 PM. \\
+    \textbf{Total Points:} 50 points \\
+    \textbf{Note:} This is an extra assignment, which may help you improve your grade as we will be picking up your best 8 assignments out of 9 assignments.\\
+
+    \textbf{Directions:} Using the source provided via Gitlab \@ \texttt{https://gitlab.com/sanroy/sp21-cs3060-hw/},
+complete the assignment below. The process for completing this assignment should be as follows:
+
+    \begin{enumerate}[noitemsep]
+        \item You already forked the Repository ``sanroy/sp21-cs3060-hw'' to a repository ``yourId/sp21-cs3060-hw'' under your username. If not, do it now.
+        \item Get a copy of hw9 folder in ``sanroy/sp21-cs3060-hw'' repository as a hw9 folder in your repository ``yourId/sp21-cs3060-hw''
+        \item Complete the assignment, committing changes to git. Each task code should be in a separate file. As an example, task1.scala for Task 1.
+        \item Push all commits to your Gitlab repository
+        \item If you have done yet done so, sdd TA (username: prabeshpaudel) as a member of your Gitlab repository
+    \end{enumerate}
+
+
+    \textbf{Tasks:}
+    \begin{enumerate}
+
+       \item \textbf{Task \#1: (10 points)} Scala. In Task 6 of HW5 (Scala) we wrote a Scala program to process 
+two textfiles (i.e. two stories) that you downloaded from a website (http://www.textfiles.com/stories/). The 
+Scala program was to compute some statistics of those two files (e.g. word count, etc.). 
+I guess you will find it even more exciting if we can automatically grab all story files 
+(maybe, more than 100 stories it has) that appear on the same website
+and process them to collect statistics. That is exactly what you will do in the current task.
+In particular, write a Scala program to process all stories (whereas each story is a text file) present on
+ http://www.textfiles.com/stories/ and report the average number of words in a story. 
+
+Hint: In HW6 we learned how to programmatically find all links on a webpage. Here each link corresponds to one story textfile.   
+ 
+       \item \textbf{Task \#2: (6 points)} Scala. Let's get back to Task 2 of HW6 (Scala) where we developed a mini web crawler. 
+You know that in Task 2c we did not use parallel computation (i.e. multi-Threaded processing) last time. 
+Your current task is to do exactly that, i.e., redo Task 2c through parallel computation.  
+You need to use the concept of \texttt{par} collection, and concept of functional programming while ensuring that your program is free from \texttt{side effect}. 
+\emph{Writing README carries 1 point.}
+
+
+        \item \textbf{Task \#3a: (10 points)} Haskell. Write a Haskell function named \texttt{myCount} 
+which takes two parameters, an item \texttt{p} and a \texttt{list}. 
+The myCount function returns how many times \texttt{p} appears in \texttt{list}. 
+Your function needs to be generic, e.g. should work for integer, characters or anything else. 
+Test your function as follows and report the result in README.
+
+myCount 'a' ['a','b','a','b','a'] should return 3
+
+myCount  3 [5,1,5,2,3]  should return 1
+
+\textbf{Task \#3b: (3 points)} 
+Test your function on a list of Cards. The Card type is defined in Haskell lecture ppt 2.  
+Report the result in README.
+
+\textbf{Task \#3c: (3 points)} 
+Test your function on a list of Books. The Book type is defined in Haskell group activity 15.  
+Report the result in README.
+
+\emph{Writing README carries 2 points.}
+        \item \textbf{Task \#4: (18 points)} Haskell. Haskell recursive type: 
+Write a function \texttt{greaterThan10} which takes a binary tree as input and returns 
+the number of nodes (in the tree) that hold value greater than 10. 
+Use the following data type for the binary tree, 
+where each internal node as well as each leaf node holds a value.
+
+data Tree a = Leaf a | BinaryTree (Tree a) a (Tree a)  deriving (Show)
+
+Build a tree of 12 or more nodes with height 3 or more 
+(where each node holding an integer) and apply your \texttt{greaterThan10} 
+function on the tree, and report the output in README file. \emph{Writing README carries 2 points.}
+
+    % \vspace{2cm}
+    
+    \end{enumerate}
+
+\end{document}
+
+

@@ -1,0 +1,21 @@
+This is your readme file. Edit this file to let the user (e.g. TA) know 
+how to read/run your files/code, expected input/output, and more (if necessary). 
+
+Function 1:
+Type a word then hit enter (repeat 4 times)
+savedText.txt will have what you wrote 
+
+Function 2:
+Enter a file name 
+prints results to console
+
+Function 3:
+Output is automatic
+
+Function 4:
+enter a num btween 50 and 100
+
+Functon 5
+I wasnt able to find the unique words and the 3rd most frequent word 
+
+output unique words in both stories
